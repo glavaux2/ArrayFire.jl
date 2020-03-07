@@ -211,6 +211,13 @@ function reshape(_in::AFArray{T},dims::NTuple{N,Int}) where {T,N}
 end
 reshape(a::AFArray, t::Int...) = reshape(a, t)
 
+
+function pad(_in::AFArray{T,N}, begin_dims::NTuple{N,Int}, end_dims::NTuple{N,Int}, padding::af_border_type) where {T,N}
+    out = RefValue{af_array}(0)
+    _error(ccall(:af_pad,af_lib),af_err,(Ptr{af_array},af_array,UInt32,Ptr{dim_t},Uint32,Ptr{dim_t},af_border_type), out, _in.arr, UInt32(length(begin_dims)), [begin_dims...], Uint32(length(end_dims)), [end_dims...], padding)
+    AFArray{T,N}(out[])
+end
+
 using SpecialFunctions
 import SpecialFunctions: erf, erfc
 

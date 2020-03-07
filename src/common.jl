@@ -102,6 +102,8 @@ const AF_INTERP_BICUBIC_SPLINE = (UInt32)(9)
 const af_border_type = UInt32
 const AF_PAD_ZERO = (UInt32)(0)
 const AF_PAD_SYM = (UInt32)(1)
+const AF_PAD_CLAMP_TO_EDGE = (UInt32)(2)
+const AF_PAD_PERIODIC = (UInt32)(3)
 # end enum af_border_type
 
 # begin enum af_connectivity

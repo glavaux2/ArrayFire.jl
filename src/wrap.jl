@@ -39,6 +39,8 @@ export sparse_get_nnz, sparse_get_row_idx, sparse_get_storage, sparse_get_values
 export sum, sum_all, sum_nan, sum_nan_all, susan, svd_inplace, sync, tan, tanh, tgamma, tile, topk, transform
 export transform_coordinates, translate, transpose_inplace, trunc, unlock_array, unlock_device_ptr, unwrap
 export upper, var_all, var_all_weighted, wrap, write_array, ycbcr2rgb
+export pad
+
 
 function sum(_in::AFArray{T,N},dim::Integer) where {T,N}
     out = RefValue{af_array}(0)
